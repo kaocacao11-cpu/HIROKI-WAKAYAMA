@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>若山弘貴 | F&Bコンサルタント・食品開発</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0e0e0c;
+  --ivory:#f8f5ef;
+  --cream:#f2ede3;
+  --gold:#b8903c;
+  --gold-lt:#d4a84e;
+  --muted:#7a7568;
+  --border:#d8d2c4;
+  --serif:'Cormorant Garamond',serif;
+  --sans:'Noto Sans JP',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--ivory);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.8;overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 48px;display:flex;justify-content:space-between;align-items:center;background:rgba(248,245,239,.92);backdrop-filter:blur(12px);border-bottom:0.5px solid var(--border)}
+.nav-logo{font-family:var(--serif);font-size:18px;font-weight:400;letter-spacing:.08em;color:var(--ink)}
+.nav-links{display:flex;gap:32px}
+.nav-links a{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{font-size:12px;letter-spacing:.1em;padding:8px 20px;border:0.5px solid var(--ink);color:var(--ink);text-decoration:none;transition:all .2s}
+.nav-cta:hover{background:var(--ink);color:var(--ivory)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:120px 48px 80px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,var(--ivory) 0%,var(--cream) 60%,#e8e0d0 100%)}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:60px 60px;opacity:.25}
+.hero-content{position:relative;max-width:680px}
+.hero-tag{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;display:flex;align-items:center;gap:12px}
+.hero-tag::before{content:'';width:32px;height:0.5px;background:var(--gold)}
+.hero-h1{font-family:var(--serif);font-size:clamp(48px,7vw,88px);font-weight:300;line-height:1.08;letter-spacing:-.01em;margin-bottom:32px}
+.hero-h1 em{font-style:italic;color:var(--gold)}
+.hero-sub{font-size:15px;color:var(--muted);max-width:480px;margin-bottom:48px;line-height:1.9}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap}
+.btn-primary{padding:14px 36px;background:var(--ink);color:var(--ivory);font-size:12px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:all .3s}
+.btn-primary:hover{background:var(--gold)}
+.btn-outline{padding:14px 36px;border:0.5px solid var(--ink);color:var(--ink);font-size:12px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:all .3s}
+.btn-outline:hover{background:var(--ink);color:var(--ivory)}
+.hero-numbers{position:absolute;right:48px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:40px}
+.hero-num{text-align:right}
+.hero-num-val{font-family:var(--serif);font-size:52px;font-weight:300;line-height:1;color:var(--ink)}
+.hero-num-label{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+
+/* DIVIDER */
+.divider{width:100%;height:0.5px;background:var(--border)}
+
+/* SECTION */
+section{padding:100px 48px}
+.section-tag{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:12px}
+.section-tag::before{content:'';width:24px;height:0.5px;background:var(--gold)}
+.section-h2{font-family:var(--serif);font-size:clamp(36px,5vw,56px);font-weight:300;line-height:1.1;margin-bottom:48px}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.about-text p{color:var(--muted);font-size:15px;line-height:1.9;margin-bottom:20px}
+.about-facts{display:flex;flex-direction:column;gap:24px}
+.fact{padding:24px;border:0.5px solid var(--border);border-left:2px solid var(--gold)}
+.fact-label{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.fact-val{font-family:var(--serif);font-size:22px;font-weight:400}
+
+/* SERVICES */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:0.5px solid var(--border)}
+.service{background:var(--ivory);padding:40px 32px;transition:background .3s}
+.service:hover{background:var(--cream)}
+.service-num{font-family:var(--serif);font-size:48px;font-weight:300;color:var(--border);line-height:1;margin-bottom:24px}
+.service-title{font-family:var(--serif);font-size:22px;font-weight:400;margin-bottom:12px}
+.service-desc{font-size:13px;color:var(--muted);line-height:1.8;margin-bottom:24px}
+.service-price{font-size:12px;letter-spacing:.1em;color:var(--gold);border-top:0.5px solid var(--border);padding-top:16px}
+
+/* WORKS */
+.works-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px}
+.work{padding:40px;border:0.5px solid var(--border);position:relative;overflow:hidden;transition:border-color .3s}
+.work:hover{border-color:var(--gold)}
+.work-tag{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.work-title{font-family:var(--serif);font-size:28px;font-weight:400;margin-bottom:16px}
+.work-desc{font-size:13px;color:var(--muted);line-height:1.8;margin-bottom:24px}
+.work-kpi{display:flex;gap:24px}
+.kpi{text-align:left}
+.kpi-val{font-family:var(--serif);font-size:28px;font-weight:300;color:var(--ink)}
+.kpi-label{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.work-accent{position:absolute;bottom:-20px;right:-20px;width:80px;height:80px;border-radius:50%;border:0.5px solid var(--border)}
+
+/* CONTENT STORE */
+.content-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.content-card{border:0.5px solid var(--border);padding:32px;transition:all .3s;cursor:pointer;text-decoration:none;color:inherit;display:block}
+.content-card:hover{border-color:var(--gold);transform:translateY(-4px)}
+.content-tag{font-size:10px;letter-spacing:.15em;text-transform:uppercase;background:var(--cream);padding:4px 10px;display:inline-block;margin-bottom:16px;color:var(--muted)}
+.content-title{font-family:var(--serif);font-size:18px;font-weight:400;margin-bottom:12px;line-height:1.4}
+.content-desc{font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:20px}
+.content-price{font-size:20px;font-family:var(--serif);color:var(--gold)}
+.content-price span{font-size:11px;font-family:var(--sans);color:var(--muted)}
+
+/* TESTIMONIAL */
+.testimonial-bg{background:var(--ink);padding:100px 48px}
+.testimonial-bg .section-tag{color:var(--gold)}
+.testimonial-bg .section-tag::before{background:var(--gold)}
+.testimonial-bg .section-h2{color:var(--ivory)}
+.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.testimonial{padding:32px;border:0.5px solid rgba(255,255,255,.15);position:relative}
+.quote{font-family:var(--serif);font-size:48px;color:var(--gold);line-height:1;margin-bottom:8px;font-style:italic}
+.testimonial-text{font-size:13px;color:rgba(255,255,255,.7);line-height:1.8;margin-bottom:24px}
+.testimonial-author{font-size:12px;letter-spacing:.1em;color:rgba(255,255,255,.4)}
+
+/* CONTACT + CHAT */
+.contact-section{background:var(--cream);padding:100px 48px}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.contact-info h3{font-family:var(--serif);font-size:32px;font-weight:300;margin-bottom:20px}
+.contact-info p{font-size:14px;color:var(--muted);line-height:1.9;margin-bottom:32px}
+.contact-links{display:flex;flex-direction:column;gap:12px}
+.contact-link{display:flex;align-items:center;gap:12px;font-size:13px;color:var(--muted);text-decoration:none;padding:12px 0;border-bottom:0.5px solid var(--border);transition:color .2s}
+.contact-link:hover{color:var(--gold)}
+.contact-link-icon{width:20px;text-align:center;color:var(--gold)}
+
+/* AI CHAT BOX */
+.chat-box{background:var(--ivory);border:0.5px solid var(--border);border-radius:2px;overflow:hidden}
+.chat-header{background:var(--ink);padding:16px 20px;display:flex;align-items:center;gap:10px}
+.chat-dot{width:8px;height:8px;border-radius:50%;background:var(--gold)}
+.chat-header-text{font-size:12px;letter-spacing:.1em;color:rgba(255,255,255,.7)}
+.chat-messages{padding:20px;min-height:280px;max-height:320px;overflow-y:auto;display:flex;flex-direction:column;gap:12px}
+.chat-msg{padding:12px 16px;border-radius:2px;font-size:13px;line-height:1.6;max-width:85%}
+.chat-msg.bot{background:var(--cream);align-self:flex-start;border-left:2px solid var(--gold)}
+.chat-msg.user{background:var(--ink);color:var(--ivory);align-self:flex-end}
+.chat-typing{display:flex;gap:4px;align-items:center;padding:8px 12px}
+.chat-typing span{width:6px;height:6px;border-radius:50%;background:var(--muted);animation:bounce .8s ease-in-out infinite}
+.chat-typing span:nth-child(2){animation-delay:.15s}
+.chat-typing span:nth-child(3){animation-delay:.3s}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+.chat-input-area{border-top:0.5px solid var(--border);padding:12px 16px;display:flex;gap:8px;align-items:center}
+.chat-input{flex:1;border:none;background:transparent;font-family:var(--sans);font-size:13px;color:var(--ink);outline:none;font-weight:300}
+.chat-input::placeholder{color:var(--border)}
+.chat-send{padding:8px 16px;background:var(--ink);color:var(--ivory);border:none;font-size:11px;letter-spacing:.1em;cursor:pointer;transition:background .2s;font-family:var(--sans)}
+.chat-send:hover{background:var(--gold)}
+.chat-chips{padding:0 20px 12px;display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:11px;padding:6px 12px;border:0.5px solid var(--border);cursor:pointer;color:var(--muted);transition:all .2s;background:transparent}
+.chip:hover{border-color:var(--gold);color:var(--gold)}
+
+/* FOOTER */
+footer{background:var(--ink);color:rgba(255,255,255,.4);padding:40px 48px;display:flex;justify-content:space-between;align-items:center}
+footer a{color:rgba(255,255,255,.4);text-decoration:none;font-size:12px}
+
+/* FADE IN */
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.fade-up.visible{opacity:1;transform:none}
+
+@media(max-width:768px){
+  nav{padding:16px 20px}
+  .nav-links{display:none}
+  .hero{padding:100px 20px 60px}
+  .hero-numbers{display:none}
+  section{padding:64px 20px}
+  .about-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
+  .services-grid,.content-grid,.works-grid,.testimonials-grid{grid-template-columns:1fr}
+  .hero-actions{flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">若山 弘貴</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#works">Works</a>
+    <a href="#contents">Contents</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a href="#contact" class="nav-cta">相談する</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content fade-up">
+    <div class="hero-tag">F&B Consultant · Food Developer</div>
+    <h1 class="hero-h1">食の現場を、<br><em>仕組みで</em><br>変える。</h1>
+    <p class="hero-sub">20年の現場経験と栄養科学・OPS設計の知見を掛け合わせ、飲食・食品事業の本質的な課題を解決します。表参道・銀座など都内主要クライアントに対応中。</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">無料相談を予約する</a>
+      <a href="#contents" class="btn-outline">コンテンツを見る</a>
+    </div>
+  </div>
+  <div class="hero-numbers fade-up">
+    <div class="hero-num">
+      <div class="hero-num-val">20<span style="font-size:28px">年</span></div>
+      <div class="hero-num-label">Industry Experience</div>
+    </div>
+    <div class="hero-num">
+      <div class="hero-num-val">¥55M</div>
+      <div class="hero-num-label">Annual Sales Achieved</div>
+    </div>
+    <div class="hero-num">
+      <div class="hero-num-val">107<span style="font-size:28px">%</span></div>
+      <div class="hero-num-label">vs Budget</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-tag">About</div>
+  <h2 class="section-h2 fade-up">職人技術と<br>ビジネス設計の融合</h2>
+  <div class="about-grid">
+    <div class="about-text fade-up">
+      <p>フランス・ベルギーで製菓を修め、帰国後はRelogroupにて40店舗のホテルを統括するエグゼクティブパティシエとして7年間勤務。現場の最前線を知るからこそ、机上の空論ではない改善提案ができます。</p>
+      <p>現在はアッシェ企画として独立し、表参道ヒルズのLÝFT GYM栄養カフェや銀座・丸の内GiDeliなど、ヘルスF&B領域を中心に複数のクライアントのオペレーション改善・メニュー開発・採用構築を同時並行で支援。</p>
+      <p>栄養士・調理師免許に加え、簿記・ビジネスマネジャー・宅地建物取引士の資格も保有。食品開発から財務管理まで、事業全体を俯瞰して支援します。</p>
+    </div>
+    <div class="about-facts fade-up">
+      <div class="fact">
+        <div class="fact-label">Expertise</div>
+        <div class="fact-val">F&B オペレーション設計</div>
+      </div>
+      <div class="fact">
+        <div class="fact-label">Expertise</div>
+        <div class="fact-val">高機能食品 OEM 開発</div>
+      </div>
+      <div class="fact">
+        <div class="fact-label">Expertise</div>
+        <div class="fact-val">採用 · 人材育成設計</div>
+      </div>
+      <div class="fact">
+        <div class="fact-label">Expertise</div>
+        <div class="fact-val">原価 · メニュー収益最適化</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SERVICES -->
+<section id="services" style="background:var(--cream)">
+  <div class="section-tag">Services</div>
+  <h2 class="section-h2 fade-up">提供サービス</h2>
+  <div class="services-grid fade-up">
+    <div class="service">
+      <div class="service-num">01</div>
+      <div class="service-title">スポット相談</div>
+      <div class="service-desc">90分のオンライン相談。オペレーション課題・原価問題・採用計画など、具体的な問題に対して即日アクションプランを提示します。</div>
+      <div class="service-price">¥30,000 / 90min</div>
+    </div>
+    <div class="service">
+      <div class="service-num">02</div>
+      <div class="service-title">月次顧問プラン</div>
+      <div class="service-desc">週1回Zoom + チャット無制限対応。ガントチャート・タスク管理・週次レポートを含む伴走型支援。立て直しから安定運営まで。</div>
+      <div class="service-price">¥80,000〜 / month</div>
+    </div>
+    <div class="service">
+      <div class="service-num">03</div>
+      <div class="service-title">OPSデザインパック</div>
+      <div class="service-desc">課題分析から、マニュアル・採用設計・原価管理シート・メニューカレンダーまでをパッケージで納品。現場に即使えるツール一式。</div>
+      <div class="service-price">¥150,000〜 / project</div>
+    </div>
+    <div class="service">
+      <div class="service-num">04</div>
+      <div class="service-title">高機能食品 OEM 開発</div>
+      <div class="service-desc">プロテイン菓子・機能性スムージーなどの製品仕様書作成〜工場選定まで。栄養計算・原材料選定・パッケージ設計を含む。</div>
+      <div class="service-price">¥200,000〜 / product</div>
+    </div>
+    <div class="service">
+      <div class="service-num">05</div>
+      <div class="service-title">メニュー収益改善</div>
+      <div class="service-desc">ABC分析・原価率・季節対応・ターゲット別訴求を組み合わせたメニューリニューアル。売上と利益を同時に改善します。</div>
+      <div class="service-price">¥60,000〜 / project</div>
+    </div>
+    <div class="service">
+      <div class="service-num">06</div>
+      <div class="service-title">採用 · 育成設計</div>
+      <div class="service-desc">求人票作成・面接設計・入社後OJT計画・1on1フレームワーク構築まで。採用コストを下げながら即戦力を育てる仕組みを作ります。</div>
+      <div class="service-price">¥50,000〜 / project</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WORKS -->
+<section id="works">
+  <div class="section-tag">Works</div>
+  <h2 class="section-h2 fade-up">支援実績</h2>
+  <div class="works-grid fade-up">
+    <div class="work">
+      <div class="work-tag">表参道ヒルズ · ジムカフェ</div>
+      <div class="work-title">LÝFT GYM<br>Nutrition Cafe</div>
+      <div class="work-desc">スムージーメニューの栄養設計・季節商品開発・コスト最適化・撮影ディレクションまで包括支援。冬季売上低迷の課題に対し、ホットプロテインラテ等の新カテゴリーを提案。</div>
+      <div class="work-kpi">
+        <div class="kpi"><div class="kpi-val">¥55M</div><div class="kpi-label">Annual Sales</div></div>
+        <div class="kpi"><div class="kpi-val">107%</div><div class="kpi-label">vs Budget</div></div>
+      </div>
+      <div class="work-accent"></div>
+    </div>
+    <div class="work">
+      <div class="work-tag">銀座 · 丸の内 · ヘルスデリ</div>
+      <div class="work-title">GiDeli<br>店舗立て直し</div>
+      <div class="work-desc">開始1ヶ月で27項目タスク管理シート・ガントチャート・フェーズドロードマップ・OPS問題管理シートを構築。仕込みサイクルの先読み化・役割分担設計・採用インフラ整備まで。</div>
+      <div class="work-kpi">
+        <div class="kpi"><div class="kpi-val">27</div><div class="kpi-label">Tasks Organized</div></div>
+        <div class="kpi"><div class="kpi-val">1ヶ月</div><div class="kpi-label">Turnaround</div></div>
+      </div>
+      <div class="work-accent"></div>
+    </div>
+    <div class="work">
+      <div class="work-tag">プロダクト開発 · OEM</div>
+      <div class="work-title">ARCH NUTRITION<br>プロテインクッキー</div>
+      <div class="work-desc">たんぱく質22g+・290kcal以下を実現する高機能クッキーの設計。MPC80・WPI・アルロース等の成分設計から工場提出用仕様書まで一貫して開発。原価¥374→¥190-230への削減も達成。</div>
+      <div class="work-kpi">
+        <div class="kpi"><div class="kpi-val">22g+</div><div class="kpi-label">Protein / piece</div></div>
+        <div class="kpi"><div class="kpi-val">¥190〜</div><div class="kpi-label">Unit cost</div></div>
+      </div>
+      <div class="work-accent"></div>
+    </div>
+    <div class="work">
+      <div class="work-tag">三軒茶屋 · リージョン食材</div>
+      <div class="work-title">ROOTS<br>提案支援</div>
+      <div class="work-desc">地域食材を活用したメニュー開発・産地ストーリーの食卓設計・EC商品開発の提案スライドを作成。若山の栄養設計力と地域ブランディングを掛け合わせた新しいF&Bモデルを提示。</div>
+      <div class="work-kpi">
+        <div class="kpi"><div class="kpi-val">10</div><div class="kpi-label">Slides Deck</div></div>
+        <div class="kpi"><div class="kpi-val">新規</div><div class="kpi-label">Business Pitch</div></div>
+      </div>
+      <div class="work-accent"></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTENTS STORE -->
+<section id="contents" style="background:var(--cream)">
+  <div class="section-tag">Contents</div>
+  <h2 class="section-h2 fade-up">コンテンツ販売</h2>
+  <div class="content-grid fade-up">
+    <a class="content-card" href="https://note.com" target="_blank">
+      <div class="content-tag">Template · Excel</div>
+      <div class="content-title">飲食店 原価計算シート完全版</div>
+      <div class="content-desc">ドロップダウン選択で原価が自動計算。メイン・サイド・固定費を分離設計。GiDeliで実際に運用しているシートをそのまま提供。</div>
+      <div class="content-price">¥4,800 <span>/ note</span></div>
+    </a>
+    <a class="content-card" href="https://note.com" target="_blank">
+      <div class="content-tag">Guide · PDF</div>
+      <div class="content-title">OPS立て直し実践ガイド（27項目チェックリスト付き）</div>
+      <div class="content-desc">「毎日追われる」状態を脱出するための27ステップ。ガントチャートCSV・タスク管理テンプレート付き。</div>
+      <div class="content-price">¥6,800 <span>/ note</span></div>
+    </a>
+    <a class="content-card" href="https://note.com" target="_blank">
+      <div class="content-tag">Spec Sheet · Word</div>
+      <div class="content-title">高たんぱく食品 工場提出用仕様書テンプレート</div>
+      <div class="content-desc">OEM工場に初めて提出する際に必要な項目を網羅。栄養計算・原材料リスト・アレルゲン表示の記載例付き。</div>
+      <div class="content-price">¥9,800 <span>/ note</span></div>
+    </a>
+    <a class="content-card" href="https://note.com" target="_blank">
+      <div class="content-tag">Recipe · PDF</div>
+      <div class="content-title">プロテインクッキー 完全レシピ＆設計ノート</div>
+      <div class="content-desc">たんぱく質25g・265kcalを実現するレシピ。MPC80代替法・アルロース使用のガム感解消テクニック・工場移行の考え方まで収録。</div>
+      <div class="content-price">¥5,800 <span>/ note</span></div>
+    </a>
+    <a class="content-card" href="https://note.com" target="_blank">
+      <div class="content-tag">Framework · PDF</div>
+      <div class="content-title">飲食採用フル設計キット（求人票〜1on1まで）</div>
+      <div class="content-desc">Indeed求人テンプレート・面接評価シート・OJTチェックリスト・1on1フレームワークをセットで提供。採用にかかる時間を大幅削減。</div>
+      <div class="content-price">¥7,800 <span>/ note</span></div>
+    </a>
+    <a class="content-card" href="https://note.com" target="_blank">
+      <div class="content-tag">Analysis · Excel</div>
+      <div class="content-title">メニューABC分析＋季節対応プランニングシート</div>
+      <div class="content-desc">売上・原価・客数をもとにABC自動分類。季節ごとのメニュー入れ替えカレンダーと訴求軸の設計シートをセット。</div>
+      <div class="content-price">¥3,800 <span>/ note</span></div>
+    </a>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- TESTIMONIALS -->
+<section class="testimonial-bg">
+  <div class="section-tag">Voice</div>
+  <h2 class="section-h2 fade-up">クライアントの声</h2>
+  <div class="testimonials-grid fade-up">
+    <div class="testimonial">
+      <div class="quote">"</div>
+      <div class="testimonial-text">初月からガントチャートとタスク管理シートを導入していただき、何をすべきか全員が見えるようになりました。現場の動きが格段にスムーズになっています。</div>
+      <div class="testimonial-author">— 飲食事業 運営責任者</div>
+    </div>
+    <div class="testimonial">
+      <div class="quote">"</div>
+      <div class="testimonial-text">スムージーの栄養設計だけでなく、冬の新メニュー提案から撮影ブリーフまで幅広く対応いただきました。売上予算107%を達成できたのは若山さんのおかげです。</div>
+      <div class="testimonial-author">— フィットネスカフェ オーナー</div>
+    </div>
+    <div class="testimonial">
+      <div class="quote">"</div>
+      <div class="testimonial-text">プロテインクッキーのOEM仕様書、初めて工場に出せる形で作っていただきました。栄養計算から原材料の代替案まで、専門知識の高さに驚きました。</div>
+      <div class="testimonial-author">— 食品スタートアップ 代表</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <div class="section-tag">Contact</div>
+  <h2 class="section-h2 fade-up">お問い合わせ</h2>
+  <div class="contact-grid fade-up">
+    <div class="contact-info">
+      <h3>まずはAIに<br>聞いてみてください</h3>
+      <p>右のチャットで、サービス内容や料金、対応可否など何でもお気軽にどうぞ。AIが24時間対応し、必要に応じて直接ご連絡します。</p>
+      <div class="contact-links">
+        <a href="https://instagram.com" class="contact-link" target="_blank">
+          <span class="contact-link-icon">▷</span>Instagram でフォロー
+        </a>
+        <a href="https://note.com" class="contact-link" target="_blank">
+          <span class="contact-link-icon">▷</span>note でコンテンツを見る
+        </a>
+        <a href="mailto:info@ache-kikaku.com" class="contact-link">
+          <span class="contact-link-icon">▷</span>info@ache-kikaku.com
+        </a>
+        <a href="https://calendly.com" class="contact-link" target="_blank">
+          <span class="contact-link-icon">▷</span>Calendly で相談を予約する
+        </a>
+      </div>
+    </div>
+    <div class="chat-box">
+      <div class="chat-header">
+        <div class="chat-dot"></div>
+        <div class="chat-header-text">AI アシスタント · アッシェ企画</div>
+      </div>
+      <div class="chat-messages" id="chatMessages">
+        <div class="chat-msg bot">はじめまして。アッシェ企画・若山弘貴のAIアシスタントです。サービス内容・料金・ご相談の流れについて、何でもお答えします。どのようなことでお困りですか？</div>
+      </div>
+      <div class="chat-chips" id="chatChips">
+        <div class="chip" onclick="sendChip(this)">料金を教えて</div>
+        <div class="chip" onclick="sendChip(this)">どんな相談ができる？</div>
+        <div class="chip" onclick="sendChip(this)">コンテンツの内容は？</div>
+        <div class="chip" onclick="sendChip(this)">まず相談したい</div>
+      </div>
+      <div class="chat-input-area">
+        <input class="chat-input" id="chatInput" type="text" placeholder="メッセージを入力..." onkeydown="if(event.key==='Enter')sendMsg()">
+        <button class="chat-send" onclick="sendMsg()">送信</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2025 アッシェ企画 若山弘貴</span>
+  <div style="display:flex;gap:24px">
+    <a href="https://instagram.com">Instagram</a>
+    <a href="https://note.com">note</a>
+  </div>
+</footer>
+
+<script>
+// FADE IN observer
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }});
+}, {threshold: 0.1});
+document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+// AI CHAT
+const KB = {
+  '料金': 'スポット相談（90分）¥30,000、月次顧問プラン ¥80,000〜/月、OPSデザインパック ¥150,000〜です。コンテンツは¥3,800〜¥9,800で販売中です。まずはスポット相談からお気軽にどうぞ。',
+  'どんな相談': 'オペレーション改善、原価・メニュー設計、採用・育成、高機能食品のOEM開発など、F&B事業全般に対応しています。業態や規模を問わずご相談ください。',
+  'コンテンツ': '原価計算シート（¥4,800）、OPS立て直しガイド（¥6,800）、工場提出用仕様書テンプレート（¥9,800）など6種類をnoteで販売中です。すぐに使えるテンプレート形式です。',
+  '相談したい': 'ありがとうございます！Calendlyから日程を選んでいただければ、最短翌日からZoomでお話できます。→ https://calendly.com\n\nまたはメールでも受け付けています：info@ache-kikaku.com',
+  'default': '詳しい内容について直接ご相談いただけます。Calendlyから無料相談をご予約ください。または「料金を教えて」「どんな相談ができる？」などを選んでいただくとすぐにお答えできます。'
+};
+
+async function callAI(userMsg) {
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({
+        model:'claude-sonnet-4-20250514',
+        max_tokens:300,
+        system:`あなたはF&Bコンサルタント・若山弘貴のサイトのAIアシスタントです。
+サービス：①スポット相談¥30,000/90min ②月次顧問¥80,000〜 ③OPSパック¥150,000〜 ④OEM開発¥200,000〜 ⑤メニュー改善¥60,000〜 ⑥採用設計¥50,000〜
+コンテンツ：原価計算シート¥4,800、OPS立て直しガイド¥6,800、仕様書テンプレート¥9,800、プロテインクッキーレシピ¥5,800、採用キット¥7,800、ABC分析シート¥3,800
+実績：LÝFT GYM(売上¥55M/予算107%)、GiDeli立て直し、プロテインクッキー開発など
+相談・予約：Calendly / info@ache-kikaku.com
+返答は3文以内で簡潔に日本語で。最後に行動を促す一言を必ず入れる。`,
+        messages:[{role:'user',content:userMsg}]
+      })
+    });
+    const data = await res.json();
+    return data.content?.[0]?.text || null;
+  } catch(e){ return null; }
+}
+
+function addMsg(text, type) {
+  const div = document.createElement('div');
+  div.className = 'chat-msg '+type;
+  div.textContent = text;
+  const msgs = document.getElementById('chatMessages');
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function showTyping() {
+  const div = document.createElement('div');
+  div.className = 'chat-msg bot';
+  div.id = 'typing';
+  div.innerHTML = '<div class="chat-typing"><span></span><span></span><span></span></div>';
+  const msgs = document.getElementById('chatMessages');
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function hideTyping() {
+  const t = document.getElementById('typing');
+  if(t) t.remove();
+}
+
+function localAnswer(msg) {
+  const lower = msg.toLowerCase();
+  if(lower.includes('料金')||lower.includes('値段')||lower.includes('いくら')) return KB['料金'];
+  if(lower.includes('相談')||lower.includes('できる')||lower.includes('サービス')) return KB['どんな相談'];
+  if(lower.includes('コンテンツ')||lower.includes('note')||lower.includes('テンプレ')) return KB['コンテンツ'];
+  if(lower.includes('予約')||lower.includes('連絡')||lower.includes('問い合わせ')) return KB['相談したい'];
+  return null;
+}
+
+async function sendMsg() {
+  const input = document.getElementById('chatInput');
+  const msg = input.value.trim();
+  if(!msg) return;
+  input.value='';
+  document.getElementById('chatChips').style.display='none';
+  addMsg(msg,'user');
+  showTyping();
+  
+  const local = localAnswer(msg);
+  if(local) {
+    await new Promise(r=>setTimeout(r,800));
+    hideTyping();
+    addMsg(local,'bot');
+    return;
+  }
+  const ai = await callAI(msg);
+  hideTyping();
+  addMsg(ai || KB['default'],'bot');
+}
+
+function sendChip(el) {
+  document.getElementById('chatInput').value = el.textContent;
+  sendMsg();
+}
+</script>
+</body>
+</html>
